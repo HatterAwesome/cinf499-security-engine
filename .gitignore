@@ -18,3 +18,23 @@ backend/venv/
 # Local Data Storage
 data/*
 !data/.gitkeep
+
+# Generated architectural datasets
+/dataset/
+/pix2pix/datasets/
+
+# Model checkpoints and generated predictions
+/pix2pix/checkpoints/
+/pix2pix/results/
+
+# Large audit archives
+*.zip
+
+# Additional secret files
+.env.*
+*.pem
+*.key
+
+# Python environments and caches
+.venv/
+.ipynb_checkpoints/
