@@ -339,3 +339,66 @@ footer {
         padding: 26px;
     }
 }
+
+/* =========================================
+   AI Floor Plan Analysis
+   ========================================= */
+
+body.login-page {
+    background: linear-gradient(
+        135deg,
+        #101b2d,
+        #17263d,
+        #203653
+    ) !important;
+}
+
+.upload-area {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 35px 20px;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.upload-area input {
+    max-width: 450px;
+    margin: 20px auto 0;
+}
+
+.floorplan-preview {
+    min-height: 400px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.floorplan-preview img {
+    max-width: 100%;
+    max-height: 550px;
+    object-fit: contain;
+}
+
+.floorplan-preview [hidden] {
+    display: none !important;
+}
+
+.floorplan-preview p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+
+    .floorplan-preview {
+        min-height: 280px;
+    }
+
+    .upload-area {
+        padding: 25px 15px;
+    }
+
+}

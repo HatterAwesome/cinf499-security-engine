@@ -1,0 +1,714 @@
+==================================================
+PIX2PIX PROJECT AUDIT
+Date: Sat Nov 14 13:57:25 EST 2026
+==================================================
+
+========== 1. PROJECT DIRECTORY ==========
+/Users/lukealley/cinf99-security-engine/pix2pix
+total 448
+drwxr-xr-x@ 28 lukealley  staff   896B Nov 14 13:57 .
+drwxr-xr-x  10 lukealley  staff   320B Nov  5 20:36 ..
+drwxr-xr-x  12 lukealley  staff   384B Nov  5 20:13 .git
+-rw-r--r--   1 lukealley  staff   768B Nov  5 20:13 .gitignore
+-rw-r--r--   1 lukealley  staff   795B Nov  5 20:13 .replit
+drwxr-xr-x@  7 lukealley  staff   224B Nov  8 17:02 .venv
+-rw-r--r--   1 lukealley  staff   7.8K Nov  5 20:13 CycleGAN.ipynb
+-rw-r--r--   1 lukealley  staff   3.5K Nov  5 20:13 LICENSE
+-rw-r--r--   1 lukealley  staff    16K Nov  5 20:13 README.md
+drwxr-xr-x@  5 lukealley  staff   160B Nov 14 12:29 checkpoints
+-rw-r--r--@  1 lukealley  staff   6.0K Nov 14 11:44 clean_predictions.py
+drwxr-xr-x  11 lukealley  staff   352B Nov  8 17:07 data
+drwxr-xr-x  12 lukealley  staff   384B Nov 14 12:33 datasets
+drwxr-xr-x   9 lukealley  staff   288B Nov  5 20:13 docs
+-rw-r--r--   1 lukealley  staff   284B Nov  5 20:13 environment.yml
+drwxr-xr-x   4 lukealley  staff   128B Nov  5 20:13 imgs
+drwxr-xr-x  11 lukealley  staff   352B Nov  8 17:07 models
+drwxr-xr-x   7 lukealley  staff   224B Nov  8 17:07 options
+-rw-r--r--   1 lukealley  staff   7.0K Nov  5 20:13 pix2pix.ipynb
+-rw-r--r--@  1 lukealley  staff   251B Nov 14 13:57 pix2pix_audit.txt
+drwxr-xr-x@  3 lukealley  staff    96B Nov 14 11:39 results
+-rw-r--r--@  1 lukealley  staff    17K Nov 13 19:45 sample_filtered_pair.png
+-rw-r--r--@  1 lukealley  staff   106K Nov 13 19:29 sample_pairs.png
+-rw-r--r--@  1 lukealley  staff    13K Nov 13 19:37 sample_training_pair.png
+drwxr-xr-x  16 lukealley  staff   512B Nov  5 20:13 scripts
+-rw-r--r--   1 lukealley  staff   4.2K Nov  5 20:13 test.py
+-rw-r--r--   1 lukealley  staff   4.7K Nov  5 20:13 train.py
+drwxr-xr-x   9 lukealley  staff   288B Nov  8 17:07 util
+
+========== 2. PROJECT SIZE ==========
+3.5G	.
+
+========== 3. DATASET DIRECTORIES ==========
+datasets
+datasets/bibtex
+datasets/cubicasa2k
+datasets/cubicasa2k/test
+datasets/cubicasa2k/train
+datasets/cubicasa2k/val
+datasets/cubicasa2k_filtered
+datasets/cubicasa2k_filtered/test
+datasets/cubicasa2k_filtered/train
+datasets/cubicasa2k_filtered/val
+datasets/cubicasa2k_highres
+datasets/cubicasa2k_highres/test
+datasets/cubicasa2k_highres/train
+datasets/cubicasa2k_highres/val
+datasets/facades
+datasets/facades/test
+datasets/facades/train
+datasets/facades/val
+
+========== 4. DATASET IMAGE COUNTS ==========
+2731 test
+21554 train
+2784 val
+
+========== 5. ORIGINAL DATASET ==========
+2000 annotations
+2000 blank_annotations
+2000 blank_images
+   6 dataset
+2000 english_annotations
+2000 english_images
+4000 images
+   2 labeled_preview
+   3 prototype
+  14 reports
+  11 scripts
+2.5G	../dataset
+
+========== 6. TRAINING CHECKPOINTS ==========
+-rw-r--r--@ 1 lukealley  staff   208M Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/5_net_G.pth
+-rw-r--r--@ 1 lukealley  staff    11M Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/latest_net_D.pth
+-rw-r--r--@ 1 lukealley  staff    11M Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/5_net_D.pth
+-rw-r--r--@ 1 lukealley  staff   208M Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/latest_net_G.pth
+-rw-r--r--@ 1 lukealley  staff   1.1K Nov 14 13:13 checkpoints/cubicasa2k_pix2pix_v2/web/index.html
+-rw-r--r--@ 1 lukealley  staff    46K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch008_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    42K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch005_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    11K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch005_real_A.png
+-rw-r--r--@ 1 lukealley  staff    17K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch008_real_B.png
+-rw-r--r--@ 1 lukealley  staff    16K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch005_real_B.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch008_real_A.png
+-rw-r--r--@ 1 lukealley  staff    19K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch002_real_B.png
+-rw-r--r--@ 1 lukealley  staff    15K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch002_real_A.png
+-rw-r--r--@ 1 lukealley  staff    23K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch007_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   9.8K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch007_real_A.png
+-rw-r--r--@ 1 lukealley  staff    38K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch002_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    11K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch007_real_B.png
+-rw-r--r--@ 1 lukealley  staff   1.9K Nov 14 13:13 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch001_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   7.2K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch009_real_B.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch004_real_A.png
+-rw-r--r--@ 1 lukealley  staff   5.7K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch009_real_A.png
+-rw-r--r--@ 1 lukealley  staff    50K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch010_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    14K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch004_real_B.png
+-rw-r--r--@ 1 lukealley  staff    16K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch009_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch010_real_A.png
+-rw-r--r--@ 1 lukealley  staff   1.8K Nov 14 13:13 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch001_real_B.png
+-rw-r--r--@ 1 lukealley  staff    17K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch010_real_B.png
+-rw-r--r--@ 1 lukealley  staff    30K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch004_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   1.8K Nov 14 13:13 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch001_real_A.png
+-rw-r--r--@ 1 lukealley  staff    11K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch006_real_A.png
+-rw-r--r--@ 1 lukealley  staff    27K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch003_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    18K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch006_real_B.png
+-rw-r--r--@ 1 lukealley  staff    13K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch003_real_B.png
+-rw-r--r--@ 1 lukealley  staff   8.7K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch003_real_A.png
+-rw-r--r--@ 1 lukealley  staff    40K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/web/images/epoch006_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    11M Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/10_net_D.pth
+-rw-r--r--@ 1 lukealley  staff   208M Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/10_net_G.pth
+-rw-r--r--@ 1 lukealley  staff   2.4K Nov 14 12:29 checkpoints/cubicasa2k_pix2pix_v2/test_opt.txt
+-rw-r--r--@ 1 lukealley  staff   3.2K Nov 14 12:38 checkpoints/cubicasa2k_pix2pix_v2/train_opt.txt
+-rw-r--r--@ 1 lukealley  staff    20K Nov 14 13:39 checkpoints/cubicasa2k_pix2pix_v2/loss_log.txt
+-rw-r--r--@ 1 lukealley  staff   208M Nov  9 09:07 checkpoints/facades_test/5_net_G.pth
+-rw-r--r--@ 1 lukealley  staff    11M Nov  9 09:20 checkpoints/facades_test/latest_net_D.pth
+-rw-r--r--@ 1 lukealley  staff    11M Nov  9 09:07 checkpoints/facades_test/5_net_D.pth
+-rw-r--r--@ 1 lukealley  staff   208M Nov  9 09:20 checkpoints/facades_test/latest_net_G.pth
+-rw-r--r--@ 1 lukealley  staff   9.2K Nov  9 09:20 checkpoints/facades_test/web/index.html
+-rw-r--r--@ 1 lukealley  staff   126K Nov  9 09:15 checkpoints/facades_test/web/images/epoch008_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   127K Nov  9 09:07 checkpoints/facades_test/web/images/epoch005_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    47K Nov  9 09:07 checkpoints/facades_test/web/images/epoch005_real_A.png
+-rw-r--r--@ 1 lukealley  staff    97K Nov  9 09:15 checkpoints/facades_test/web/images/epoch008_real_B.png
+-rw-r--r--@ 1 lukealley  staff    86K Nov  9 09:07 checkpoints/facades_test/web/images/epoch005_real_B.png
+-rw-r--r--@ 1 lukealley  staff    62K Nov  9 09:15 checkpoints/facades_test/web/images/epoch008_real_A.png
+-rw-r--r--@ 1 lukealley  staff   109K Nov  9 08:53 checkpoints/facades_test/web/images/epoch002_real_B.png
+-rw-r--r--@ 1 lukealley  staff    69K Nov  9 08:53 checkpoints/facades_test/web/images/epoch002_real_A.png
+-rw-r--r--@ 1 lukealley  staff   129K Nov  9 09:13 checkpoints/facades_test/web/images/epoch007_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    54K Nov  9 09:13 checkpoints/facades_test/web/images/epoch007_real_A.png
+-rw-r--r--@ 1 lukealley  staff   137K Nov  9 08:53 checkpoints/facades_test/web/images/epoch002_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    93K Nov  9 09:13 checkpoints/facades_test/web/images/epoch007_real_B.png
+-rw-r--r--@ 1 lukealley  staff   141K Nov  9 08:51 checkpoints/facades_test/web/images/epoch001_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   100K Nov  9 09:18 checkpoints/facades_test/web/images/epoch009_real_B.png
+-rw-r--r--@ 1 lukealley  staff    39K Nov  9 08:58 checkpoints/facades_test/web/images/epoch004_real_A.png
+-rw-r--r--@ 1 lukealley  staff    82K Nov  9 09:18 checkpoints/facades_test/web/images/epoch009_real_A.png
+-rw-r--r--@ 1 lukealley  staff   125K Nov  9 09:20 checkpoints/facades_test/web/images/epoch010_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    96K Nov  9 08:58 checkpoints/facades_test/web/images/epoch004_real_B.png
+-rw-r--r--@ 1 lukealley  staff   128K Nov  9 09:18 checkpoints/facades_test/web/images/epoch009_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    48K Nov  9 09:20 checkpoints/facades_test/web/images/epoch010_real_A.png
+-rw-r--r--@ 1 lukealley  staff   103K Nov  9 08:51 checkpoints/facades_test/web/images/epoch001_real_B.png
+-rw-r--r--@ 1 lukealley  staff   116K Nov  9 09:20 checkpoints/facades_test/web/images/epoch010_real_B.png
+-rw-r--r--@ 1 lukealley  staff   131K Nov  9 08:58 checkpoints/facades_test/web/images/epoch004_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    71K Nov  9 08:51 checkpoints/facades_test/web/images/epoch001_real_A.png
+-rw-r--r--@ 1 lukealley  staff    56K Nov  9 09:10 checkpoints/facades_test/web/images/epoch006_real_A.png
+-rw-r--r--@ 1 lukealley  staff   133K Nov  9 08:56 checkpoints/facades_test/web/images/epoch003_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    90K Nov  9 09:10 checkpoints/facades_test/web/images/epoch006_real_B.png
+-rw-r--r--@ 1 lukealley  staff   105K Nov  9 08:56 checkpoints/facades_test/web/images/epoch003_real_B.png
+-rw-r--r--@ 1 lukealley  staff    78K Nov  9 08:56 checkpoints/facades_test/web/images/epoch003_real_A.png
+-rw-r--r--@ 1 lukealley  staff   128K Nov  9 09:10 checkpoints/facades_test/web/images/epoch006_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    11M Nov  9 09:20 checkpoints/facades_test/10_net_D.pth
+-rw-r--r--@ 1 lukealley  staff   208M Nov  9 09:20 checkpoints/facades_test/10_net_G.pth
+-rw-r--r--@ 1 lukealley  staff   3.2K Nov  9 08:48 checkpoints/facades_test/train_opt.txt
+-rw-r--r--@ 1 lukealley  staff   4.7K Nov  9 09:20 checkpoints/facades_test/loss_log.txt
+-rw-r--r--@ 1 lukealley  staff   208M Nov 13 20:49 checkpoints/cubicasa2k_pix2pix/5_net_G.pth
+-rw-r--r--@ 1 lukealley  staff    11M Nov 13 21:37 checkpoints/cubicasa2k_pix2pix/latest_net_D.pth
+-rw-r--r--@ 1 lukealley  staff    11M Nov 13 20:49 checkpoints/cubicasa2k_pix2pix/5_net_D.pth
+-rw-r--r--@ 1 lukealley  staff   208M Nov 13 21:37 checkpoints/cubicasa2k_pix2pix/latest_net_G.pth
+-rw-r--r--@ 1 lukealley  staff   9.2K Nov 13 21:36 checkpoints/cubicasa2k_pix2pix/web/index.html
+-rw-r--r--@ 1 lukealley  staff    46K Nov 13 21:08 checkpoints/cubicasa2k_pix2pix/web/images/epoch008_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    42K Nov 13 20:43 checkpoints/cubicasa2k_pix2pix/web/images/epoch005_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    11K Nov 13 20:43 checkpoints/cubicasa2k_pix2pix/web/images/epoch005_real_A.png
+-rw-r--r--@ 1 lukealley  staff    17K Nov 13 21:08 checkpoints/cubicasa2k_pix2pix/web/images/epoch008_real_B.png
+-rw-r--r--@ 1 lukealley  staff    16K Nov 13 20:43 checkpoints/cubicasa2k_pix2pix/web/images/epoch005_real_B.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 13 21:08 checkpoints/cubicasa2k_pix2pix/web/images/epoch008_real_A.png
+-rw-r--r--@ 1 lukealley  staff    19K Nov 13 20:17 checkpoints/cubicasa2k_pix2pix/web/images/epoch002_real_B.png
+-rw-r--r--@ 1 lukealley  staff    15K Nov 13 20:17 checkpoints/cubicasa2k_pix2pix/web/images/epoch002_real_A.png
+-rw-r--r--@ 1 lukealley  staff    23K Nov 13 21:00 checkpoints/cubicasa2k_pix2pix/web/images/epoch007_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   9.8K Nov 13 21:00 checkpoints/cubicasa2k_pix2pix/web/images/epoch007_real_A.png
+-rw-r--r--@ 1 lukealley  staff    38K Nov 13 20:17 checkpoints/cubicasa2k_pix2pix/web/images/epoch002_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    11K Nov 13 21:00 checkpoints/cubicasa2k_pix2pix/web/images/epoch007_real_B.png
+-rw-r--r--@ 1 lukealley  staff    47K Nov 13 20:06 checkpoints/cubicasa2k_pix2pix/web/images/epoch001_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   7.2K Nov 13 21:20 checkpoints/cubicasa2k_pix2pix/web/images/epoch009_real_B.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 13 20:33 checkpoints/cubicasa2k_pix2pix/web/images/epoch004_real_A.png
+-rw-r--r--@ 1 lukealley  staff   5.7K Nov 13 21:20 checkpoints/cubicasa2k_pix2pix/web/images/epoch009_real_A.png
+-rw-r--r--@ 1 lukealley  staff    50K Nov 13 21:36 checkpoints/cubicasa2k_pix2pix/web/images/epoch010_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    14K Nov 13 20:33 checkpoints/cubicasa2k_pix2pix/web/images/epoch004_real_B.png
+-rw-r--r--@ 1 lukealley  staff    16K Nov 13 21:20 checkpoints/cubicasa2k_pix2pix/web/images/epoch009_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 13 21:36 checkpoints/cubicasa2k_pix2pix/web/images/epoch010_real_A.png
+-rw-r--r--@ 1 lukealley  staff    21K Nov 13 20:06 checkpoints/cubicasa2k_pix2pix/web/images/epoch001_real_B.png
+-rw-r--r--@ 1 lukealley  staff    17K Nov 13 21:36 checkpoints/cubicasa2k_pix2pix/web/images/epoch010_real_B.png
+-rw-r--r--@ 1 lukealley  staff    30K Nov 13 20:33 checkpoints/cubicasa2k_pix2pix/web/images/epoch004_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    15K Nov 13 20:06 checkpoints/cubicasa2k_pix2pix/web/images/epoch001_real_A.png
+-rw-r--r--@ 1 lukealley  staff    11K Nov 13 20:55 checkpoints/cubicasa2k_pix2pix/web/images/epoch006_real_A.png
+-rw-r--r--@ 1 lukealley  staff    27K Nov 13 20:29 checkpoints/cubicasa2k_pix2pix/web/images/epoch003_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    18K Nov 13 20:55 checkpoints/cubicasa2k_pix2pix/web/images/epoch006_real_B.png
+-rw-r--r--@ 1 lukealley  staff    13K Nov 13 20:29 checkpoints/cubicasa2k_pix2pix/web/images/epoch003_real_B.png
+-rw-r--r--@ 1 lukealley  staff   8.7K Nov 13 20:29 checkpoints/cubicasa2k_pix2pix/web/images/epoch003_real_A.png
+-rw-r--r--@ 1 lukealley  staff    40K Nov 13 20:55 checkpoints/cubicasa2k_pix2pix/web/images/epoch006_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    11M Nov 13 21:37 checkpoints/cubicasa2k_pix2pix/10_net_D.pth
+-rw-r--r--@ 1 lukealley  staff   208M Nov 13 21:37 checkpoints/cubicasa2k_pix2pix/10_net_G.pth
+-rw-r--r--@ 1 lukealley  staff   2.4K Nov 14 11:39 checkpoints/cubicasa2k_pix2pix/test_opt.txt
+-rw-r--r--@ 1 lukealley  staff   3.2K Nov 13 20:04 checkpoints/cubicasa2k_pix2pix/train_opt.txt
+-rw-r--r--@ 1 lukealley  staff    16K Nov 13 21:37 checkpoints/cubicasa2k_pix2pix/loss_log.txt
+
+========== 7. TRAINING LOG ==========
+================ Training Loss (Fri Nov 13 20:04:35 2026) ================
+[Rank 0] (epoch: 1, iters: 100, time: 0.348, data: 0.020) , G_GAN: 3.178, G_L1: 5.163, D_real: 0.201, D_fake: 0.627
+
+[Rank 0] (epoch: 1, iters: 200, time: 0.348, data: 0.002) , G_GAN: 1.219, G_L1: 2.537, D_real: 0.480, D_fake: 1.163
+
+[Rank 0] (epoch: 1, iters: 300, time: 0.347, data: 0.003) , G_GAN: 1.576, G_L1: 3.291, D_real: 0.204, D_fake: 1.196
+
+[Rank 0] (epoch: 1, iters: 400, time: 0.357, data: 0.003) , G_GAN: 1.819, G_L1: 4.417, D_real: 0.223, D_fake: 0.632
+
+[Rank 0] (epoch: 1, iters: 500, time: 0.356, data: 0.002) , G_GAN: 0.914, G_L1: 2.899, D_real: 0.696, D_fake: 0.820
+
+[Rank 0] (epoch: 1, iters: 600, time: 0.346, data: 0.002) , G_GAN: 1.759, G_L1: 2.269, D_real: 0.483, D_fake: 0.643
+
+[Rank 0] (epoch: 1, iters: 700, time: 0.349, data: 0.002) , G_GAN: 0.762, G_L1: 2.678, D_real: 0.922, D_fake: 0.219
+
+[Rank 0] (epoch: 1, iters: 800, time: 0.350, data: 0.002) , G_GAN: 2.441, G_L1: 3.444, D_real: 0.105, D_fake: 1.204
+
+[Rank 0] (epoch: 1, iters: 900, time: 0.350, data: 0.002) , G_GAN: 1.467, G_L1: 2.100, D_real: 0.450, D_fake: 0.429
+
+[Rank 0] (epoch: 1, iters: 1000, time: 0.350, data: 0.002) , G_GAN: 1.536, G_L1: 2.909, D_real: 0.333, D_fake: 1.097
+
+[Rank 0] (epoch: 1, iters: 1100, time: 0.359, data: 0.002) , G_GAN: 2.445, G_L1: 4.362, D_real: 0.111, D_fake: 0.115
+
+[Rank 0] (epoch: 1, iters: 1200, time: 0.371, data: 0.003) , G_GAN: 3.101, G_L1: 1.651, D_real: 0.051, D_fake: 0.598
+
+[Rank 0] (epoch: 1, iters: 1300, time: 0.358, data: 0.002) , G_GAN: 1.821, G_L1: 2.945, D_real: 0.407, D_fake: 0.326
+
+[Rank 0] (epoch: 1, iters: 1400, time: 0.353, data: 0.004) , G_GAN: 1.510, G_L1: 1.694, D_real: 1.798, D_fake: 0.056
+
+[Rank 0] (epoch: 2, iters: 89, time: 0.356, data: 0.002) , G_GAN: 0.615, G_L1: 3.016, D_real: 0.992, D_fake: 0.145
+
+[Rank 0] (epoch: 2, iters: 189, time: 0.386, data: 0.002) , G_GAN: 3.907, G_L1: 3.069, D_real: 0.008, D_fake: 0.054
+
+[Rank 0] (epoch: 2, iters: 289, time: 0.353, data: 0.003) , G_GAN: 1.000, G_L1: 2.302, D_real: 1.185, D_fake: 0.282
+
+[Rank 0] (epoch: 2, iters: 389, time: 0.357, data: 0.003) , G_GAN: 3.286, G_L1: 4.128, D_real: 0.061, D_fake: 0.105
+
+[Rank 0] (epoch: 2, iters: 489, time: 0.347, data: 0.002) , G_GAN: 3.834, G_L1: 2.985, D_real: 0.648, D_fake: 0.020
+
+[Rank 0] (epoch: 2, iters: 589, time: 0.391, data: 0.002) , G_GAN: 0.977, G_L1: 3.186, D_real: 0.474, D_fake: 0.448
+
+[Rank 0] (epoch: 2, iters: 689, time: 0.355, data: 0.002) , G_GAN: 0.867, G_L1: 1.345, D_real: 0.660, D_fake: 0.374
+
+[Rank 0] (epoch: 2, iters: 789, time: 0.349, data: 0.003) , G_GAN: 3.918, G_L1: 3.615, D_real: 0.053, D_fake: 0.289
+
+[Rank 0] (epoch: 2, iters: 889, time: 0.349, data: 0.002) , G_GAN: 1.028, G_L1: 2.966, D_real: 0.503, D_fake: 0.090
+
+[Rank 0] (epoch: 2, iters: 989, time: 0.357, data: 0.003) , G_GAN: 3.247, G_L1: 3.880, D_real: 0.090, D_fake: 0.048
+
+[Rank 0] (epoch: 2, iters: 1089, time: 0.355, data: 0.003) , G_GAN: 1.235, G_L1: 2.590, D_real: 0.838, D_fake: 0.674
+
+[Rank 0] (epoch: 2, iters: 1189, time: 0.351, data: 0.002) , G_GAN: 3.787, G_L1: 4.407, D_real: 0.398, D_fake: 0.026
+
+[Rank 0] (epoch: 2, iters: 1289, time: 0.361, data: 0.002) , G_GAN: 2.598, G_L1: 3.830, D_real: 0.147, D_fake: 0.247
+
+[Rank 0] (epoch: 2, iters: 1389, time: 0.359, data: 0.005) , G_GAN: 3.542, G_L1: 3.600, D_real: 0.090, D_fake: 0.369
+
+[Rank 0] (epoch: 3, iters: 78, time: 0.358, data: 0.002) , G_GAN: 1.138, G_L1: 2.898, D_real: 0.610, D_fake: 0.391
+
+[Rank 0] (epoch: 3, iters: 178, time: 0.360, data: 0.002) , G_GAN: 4.323, G_L1: 2.334, D_real: 0.034, D_fake: 0.018
+
+[Rank 0] (epoch: 3, iters: 278, time: 0.362, data: 0.002) , G_GAN: 3.940, G_L1: 3.529, D_real: 0.080, D_fake: 0.069
+
+[Rank 0] (epoch: 3, iters: 378, time: 0.383, data: 0.002) , G_GAN: 4.369, G_L1: 5.314, D_real: 0.052, D_fake: 0.022
+
+[Rank 0] (epoch: 3, iters: 478, time: 0.363, data: 0.002) , G_GAN: 4.226, G_L1: 1.886, D_real: 0.038, D_fake: 0.267
+
+[Rank 0] (epoch: 3, iters: 578, time: 0.431, data: 0.002) , G_GAN: 3.859, G_L1: 3.704, D_real: 0.067, D_fake: 0.112
+
+[Rank 0] (epoch: 3, iters: 678, time: 0.368, data: 0.003) , G_GAN: 6.708, G_L1: 3.272, D_real: 0.003, D_fake: 0.002
+
+[Rank 0] (epoch: 3, iters: 778, time: 0.365, data: 0.003) , G_GAN: 1.737, G_L1: 2.686, D_real: 0.125, D_fake: 1.065
+
+[Rank 0] (epoch: 3, iters: 878, time: 0.362, data: 0.002) , G_GAN: 4.005, G_L1: 3.949, D_real: 0.006, D_fake: 0.050
+
+[Rank 0] (epoch: 3, iters: 978, time: 0.359, data: 0.003) , G_GAN: 3.385, G_L1: 2.392, D_real: 0.037, D_fake: 0.215
+
+[Rank 0] (epoch: 3, iters: 1078, time: 0.361, data: 0.002) , G_GAN: 4.556, G_L1: 4.825, D_real: 0.036, D_fake: 0.015
+
+[Rank 0] (epoch: 3, iters: 1178, time: 0.414, data: 0.002) , G_GAN: 2.605, G_L1: 2.486, D_real: 0.226, D_fake: 0.468
+
+[Rank 0] (epoch: 3, iters: 1278, time: 0.352, data: 0.004) , G_GAN: 7.109, G_L1: 2.515, D_real: 0.006, D_fake: 0.001
+
+[Rank 0] (epoch: 3, iters: 1378, time: 0.346, data: 0.003) , G_GAN: 4.758, G_L1: 1.337, D_real: 0.004, D_fake: 0.055
+
+[Rank 0] (epoch: 4, iters: 67, time: 0.350, data: 0.002) , G_GAN: 2.634, G_L1: 3.307, D_real: 0.139, D_fake: 0.150
+
+[Rank 0] (epoch: 4, iters: 167, time: 0.363, data: 0.002) , G_GAN: 5.234, G_L1: 2.059, D_real: 0.026, D_fake: 0.007
+
+[Rank 0] (epoch: 4, iters: 267, time: 0.352, data: 0.002) , G_GAN: 5.981, G_L1: 1.725, D_real: 0.021, D_fake: 0.004
+
+[Rank 0] (epoch: 4, iters: 367, time: 0.349, data: 0.003) , G_GAN: 5.435, G_L1: 1.911, D_real: 0.023, D_fake: 0.005
+
+[Rank 0] (epoch: 4, iters: 467, time: 0.362, data: 0.003) , G_GAN: 1.109, G_L1: 2.049, D_real: 0.386, D_fake: 0.254
+
+[Rank 0] (epoch: 4, iters: 567, time: 0.369, data: 0.002) , G_GAN: 2.966, G_L1: 2.468, D_real: 0.068, D_fake: 0.018
+
+[Rank 0] (epoch: 4, iters: 667, time: 0.368, data: 0.003) , G_GAN: 4.561, G_L1: 2.624, D_real: 0.004, D_fake: 0.017
+
+[Rank 0] (epoch: 4, iters: 767, time: 0.395, data: 0.002) , G_GAN: 3.992, G_L1: 1.092, D_real: 0.016, D_fake: 0.041
+
+[Rank 0] (epoch: 4, iters: 867, time: 0.366, data: 0.004) , G_GAN: 7.002, G_L1: 2.980, D_real: 0.003, D_fake: 0.001
+
+[Rank 0] (epoch: 4, iters: 967, time: 0.365, data: 0.002) , G_GAN: 7.506, G_L1: 3.358, D_real: 0.003, D_fake: 0.001
+
+[Rank 0] (epoch: 4, iters: 1067, time: 0.370, data: 0.002) , G_GAN: 7.031, G_L1: 3.952, D_real: 0.001, D_fake: 0.001
+
+[Rank 0] (epoch: 4, iters: 1167, time: 0.369, data: 0.003) , G_GAN: 5.375, G_L1: 3.789, D_real: 0.003, D_fake: 0.007
+
+[Rank 0] (epoch: 4, iters: 1267, time: 0.395, data: 0.003) , G_GAN: 5.317, G_L1: 1.062, D_real: 0.001, D_fake: 0.007
+
+[Rank 0] (epoch: 4, iters: 1367, time: 0.376, data: 0.003) , G_GAN: 5.730, G_L1: 4.021, D_real: 0.002, D_fake: 0.007
+
+[Rank 0] (epoch: 5, iters: 56, time: 0.439, data: 0.002) , G_GAN: 5.877, G_L1: 4.073, D_real: 0.008, D_fake: 0.005
+
+[Rank 0] (epoch: 5, iters: 156, time: 0.369, data: 0.005) , G_GAN: 3.926, G_L1: 2.772, D_real: 0.150, D_fake: 0.092
+
+[Rank 0] (epoch: 5, iters: 256, time: 0.368, data: 0.002) , G_GAN: 1.698, G_L1: 1.312, D_real: 0.374, D_fake: 0.103
+
+[Rank 0] (epoch: 5, iters: 356, time: 0.404, data: 0.003) , G_GAN: 5.444, G_L1: 3.332, D_real: 0.014, D_fake: 1.358
+
+[Rank 0] (epoch: 5, iters: 456, time: 0.374, data: 0.003) , G_GAN: 4.410, G_L1: 1.358, D_real: 0.007, D_fake: 0.020
+
+[Rank 0] (epoch: 5, iters: 556, time: 0.364, data: 0.002) , G_GAN: 2.982, G_L1: 3.423, D_real: 0.208, D_fake: 1.348
+
+[Rank 0] (epoch: 5, iters: 656, time: 0.364, data: 0.003) , G_GAN: 2.712, G_L1: 2.095, D_real: 0.129, D_fake: 0.296
+
+[Rank 0] (epoch: 5, iters: 756, time: 0.399, data: 0.003) , G_GAN: 2.297, G_L1: 4.182, D_real: 1.449, D_fake: 0.024
+
+[Rank 0] (epoch: 5, iters: 856, time: 0.368, data: 0.002) , G_GAN: 1.464, G_L1: 3.355, D_real: 0.512, D_fake: 0.088
+
+[Rank 0] (epoch: 5, iters: 956, time: 0.367, data: 0.002) , G_GAN: 5.830, G_L1: 3.301, D_real: 0.004, D_fake: 0.005
+
+[Rank 0] (epoch: 5, iters: 1056, time: 0.367, data: 0.003) , G_GAN: 7.832, G_L1: 5.202, D_real: 0.006, D_fake: 0.001
+
+[Rank 0] (epoch: 5, iters: 1156, time: 0.362, data: 0.006) , G_GAN: 7.692, G_L1: 2.373, D_real: 0.001, D_fake: 0.001
+
+[Rank 0] (epoch: 5, iters: 1256, time: 0.368, data: 0.003) , G_GAN: 5.439, G_L1: 2.803, D_real: 0.008, D_fake: 0.211
+
+[Rank 0] (epoch: 5, iters: 1356, time: 0.362, data: 0.003) , G_GAN: 5.051, G_L1: 3.555, D_real: 0.002, D_fake: 0.013
+
+[Rank 0] (epoch: 6, iters: 45, time: 0.372, data: 0.002) , G_GAN: 6.575, G_L1: 1.978, D_real: 0.001, D_fake: 0.002
+
+[Rank 0] (epoch: 6, iters: 145, time: 0.377, data: 0.004) , G_GAN: 5.750, G_L1: 3.294, D_real: 0.001, D_fake: 0.005
+
+[Rank 0] (epoch: 6, iters: 245, time: 0.367, data: 0.002) , G_GAN: 2.913, G_L1: 2.767, D_real: 0.084, D_fake: 0.737
+
+[Rank 0] (epoch: 6, iters: 345, time: 0.368, data: 0.003) , G_GAN: 4.014, G_L1: 2.996, D_real: 0.057, D_fake: 0.019
+
+[Rank 0] (epoch: 6, iters: 445, time: 0.366, data: 0.003) , G_GAN: 5.840, G_L1: 2.613, D_real: 0.011, D_fake: 0.004
+
+[Rank 0] (epoch: 6, iters: 545, time: 0.380, data: 0.003) , G_GAN: 7.317, G_L1: 3.369, D_real: 0.008, D_fake: 0.001
+
+[Rank 0] (epoch: 6, iters: 645, time: 0.418, data: 0.003) , G_GAN: 5.836, G_L1: 4.075, D_real: 0.001, D_fake: 0.005
+
+[Rank 0] (epoch: 6, iters: 745, time: 0.368, data: 0.004) , G_GAN: 1.072, G_L1: 3.294, D_real: 0.035, D_fake: 3.098
+
+[Rank 0] (epoch: 6, iters: 845, time: 0.363, data: 0.003) , G_GAN: 4.081, G_L1: 2.580, D_real: 0.067, D_fake: 0.055
+
+[Rank 0] (epoch: 6, iters: 945, time: 0.381, data: 0.004) , G_GAN: 4.523, G_L1: 3.379, D_real: 0.003, D_fake: 0.081
+
+[Rank 0] (epoch: 6, iters: 1045, time: 0.367, data: 0.003) , G_GAN: 5.782, G_L1: 3.213, D_real: 0.003, D_fake: 0.008
+
+[Rank 0] (epoch: 6, iters: 1145, time: 0.371, data: 0.003) , G_GAN: 8.542, G_L1: 2.842, D_real: 0.002, D_fake: 0.000
+
+[Rank 0] (epoch: 6, iters: 1245, time: 0.367, data: 0.002) , G_GAN: 0.986, G_L1: 2.529, D_real: 0.289, D_fake: 0.125
+
+[Rank 0] (epoch: 6, iters: 1345, time: 0.368, data: 0.003) , G_GAN: 1.032, G_L1: 3.354, D_real: 1.717, D_fake: 0.037
+
+[Rank 0] (epoch: 7, iters: 34, time: 0.370, data: 0.003) , G_GAN: 5.603, G_L1: 1.254, D_real: 0.007, D_fake: 0.007
+
+[Rank 0] (epoch: 7, iters: 134, time: 0.374, data: 0.002) , G_GAN: 5.450, G_L1: 2.443, D_real: 0.027, D_fake: 0.005
+
+[Rank 0] (epoch: 7, iters: 234, time: 0.370, data: 0.003) , G_GAN: 6.253, G_L1: 3.343, D_real: 0.001, D_fake: 0.003
+
+[Rank 0] (epoch: 7, iters: 334, time: 0.404, data: 0.003) , G_GAN: 2.184, G_L1: 1.370, D_real: 0.436, D_fake: 1.533
+
+[Rank 0] (epoch: 7, iters: 434, time: 0.374, data: 0.002) , G_GAN: 2.271, G_L1: 3.096, D_real: 0.348, D_fake: 0.072
+
+[Rank 0] (epoch: 7, iters: 534, time: 0.371, data: 0.003) , G_GAN: 4.401, G_L1: 1.622, D_real: 0.013, D_fake: 0.016
+
+[Rank 0] (epoch: 7, iters: 634, time: 0.367, data: 0.004) , G_GAN: 6.566, G_L1: 2.336, D_real: 0.002, D_fake: 0.003
+
+[Rank 0] (epoch: 7, iters: 734, time: 0.386, data: 0.002) , G_GAN: 7.142, G_L1: 4.286, D_real: 0.009, D_fake: 0.002
+
+[Rank 0] (epoch: 7, iters: 834, time: 0.365, data: 0.002) , G_GAN: 6.153, G_L1: 4.742, D_real: 0.002, D_fake: 0.009
+
+[Rank 0] (epoch: 7, iters: 934, time: 0.364, data: 0.002) , G_GAN: 3.736, G_L1: 2.634, D_real: 0.008, D_fake: 0.150
+
+[Rank 0] (epoch: 7, iters: 1034, time: 0.361, data: 0.004) , G_GAN: 4.404, G_L1: 4.210, D_real: 0.009, D_fake: 0.027
+
+[Rank 0] (epoch: 7, iters: 1134, time: 0.367, data: 0.003) , G_GAN: 7.374, G_L1: 1.428, D_real: 0.003, D_fake: 0.001
+
+[Rank 0] (epoch: 7, iters: 1234, time: 0.367, data: 0.002) , G_GAN: 8.827, G_L1: 3.049, D_real: 0.006, D_fake: 0.966
+
+[Rank 0] (epoch: 7, iters: 1334, time: 0.364, data: 0.002) , G_GAN: 3.981, G_L1: 3.053, D_real: 0.092, D_fake: 1.776
+
+[Rank 0] (epoch: 8, iters: 23, time: 0.361, data: 0.003) , G_GAN: 3.983, G_L1: 3.371, D_real: 0.043, D_fake: 0.040
+
+[Rank 0] (epoch: 8, iters: 123, time: 0.382, data: 0.002) , G_GAN: 2.438, G_L1: 3.113, D_real: 0.220, D_fake: 1.102
+
+[Rank 0] (epoch: 8, iters: 223, time: 0.370, data: 0.009) , G_GAN: 4.101, G_L1: 3.187, D_real: 0.047, D_fake: 0.030
+
+[Rank 0] (epoch: 8, iters: 323, time: 0.389, data: 0.004) , G_GAN: 4.783, G_L1: 4.308, D_real: 0.008, D_fake: 0.012
+
+[Rank 0] (epoch: 8, iters: 423, time: 0.387, data: 0.002) , G_GAN: 4.368, G_L1: 3.793, D_real: 0.006, D_fake: 0.028
+
+[Rank 0] (epoch: 8, iters: 523, time: 0.414, data: 0.002) , G_GAN: 4.981, G_L1: 5.007, D_real: 0.013, D_fake: 0.012
+
+[Rank 0] (epoch: 8, iters: 623, time: 0.433, data: 0.004) , G_GAN: 7.164, G_L1: 2.586, D_real: 0.004, D_fake: 0.001
+
+[Rank 0] (epoch: 8, iters: 723, time: 0.412, data: 0.009) , G_GAN: 3.804, G_L1: 1.668, D_real: 0.034, D_fake: 0.297
+
+[Rank 0] (epoch: 8, iters: 823, time: 0.393, data: 0.003) , G_GAN: 6.799, G_L1: 2.742, D_real: 0.002, D_fake: 0.002
+
+[Rank 0] (epoch: 8, iters: 923, time: 0.398, data: 0.002) , G_GAN: 3.264, G_L1: 1.989, D_real: 0.083, D_fake: 0.245
+
+[Rank 0] (epoch: 8, iters: 1023, time: 0.348, data: 0.003) , G_GAN: 6.679, G_L1: 2.521, D_real: 0.001, D_fake: 0.002
+
+[Rank 0] (epoch: 8, iters: 1123, time: 0.369, data: 0.002) , G_GAN: 7.040, G_L1: 4.445, D_real: 0.003, D_fake: 0.002
+
+[Rank 0] (epoch: 8, iters: 1223, time: 0.372, data: 0.004) , G_GAN: 5.525, G_L1: 3.450, D_real: 0.001, D_fake: 0.015
+
+[Rank 0] (epoch: 8, iters: 1323, time: 0.372, data: 0.003) , G_GAN: 6.489, G_L1: 4.548, D_real: 0.001, D_fake: 0.003
+
+[Rank 0] (epoch: 9, iters: 12, time: 0.365, data: 0.002) , G_GAN: 7.489, G_L1: 3.988, D_real: 0.001, D_fake: 0.001
+
+[Rank 0] (epoch: 9, iters: 112, time: 0.369, data: 0.003) , G_GAN: 6.354, G_L1: 4.527, D_real: 0.001, D_fake: 0.003
+
+[Rank 0] (epoch: 9, iters: 212, time: 0.365, data: 0.002) , G_GAN: 7.398, G_L1: 4.855, D_real: 0.014, D_fake: 0.001
+
+[Rank 0] (epoch: 9, iters: 312, time: 0.378, data: 0.003) , G_GAN: 0.134, G_L1: 1.514, D_real: 5.336, D_fake: 0.006
+
+[Rank 0] (epoch: 9, iters: 412, time: 0.364, data: 0.003) , G_GAN: 2.095, G_L1: 2.018, D_real: 1.329, D_fake: 0.690
+
+[Rank 0] (epoch: 9, iters: 512, time: 0.364, data: 0.003) , G_GAN: 0.872, G_L1: 1.304, D_real: 0.376, D_fake: 0.196
+
+[Rank 0] (epoch: 9, iters: 612, time: 0.369, data: 0.003) , G_GAN: 3.556, G_L1: 2.296, D_real: 0.020, D_fake: 0.071
+
+[Rank 0] (epoch: 9, iters: 712, time: 0.390, data: 0.003) , G_GAN: 5.128, G_L1: 1.210, D_real: 0.003, D_fake: 0.010
+
+[Rank 0] (epoch: 9, iters: 812, time: 0.399, data: 0.003) , G_GAN: 2.169, G_L1: 1.521, D_real: 0.031, D_fake: 0.917
+
+[Rank 0] (epoch: 9, iters: 912, time: 0.397, data: 0.004) , G_GAN: 4.564, G_L1: 2.831, D_real: 0.433, D_fake: 0.004
+
+[Rank 0] (epoch: 9, iters: 1012, time: 0.368, data: 0.003) , G_GAN: 9.063, G_L1: 2.713, D_real: 0.003, D_fake: 0.000
+
+[Rank 0] (epoch: 9, iters: 1112, time: 0.384, data: 0.002) , G_GAN: 1.611, G_L1: 3.292, D_real: 0.305, D_fake: 0.441
+
+[Rank 0] (epoch: 9, iters: 1212, time: 0.422, data: 0.003) , G_GAN: 2.723, G_L1: 2.389, D_real: 0.125, D_fake: 0.399
+
+[Rank 0] (epoch: 9, iters: 1312, time: 0.422, data: 0.002) , G_GAN: 3.342, G_L1: 2.618, D_real: 0.059, D_fake: 0.295
+
+[Rank 0] (epoch: 10, iters: 1, time: 0.423, data: 0.003) , G_GAN: 5.091, G_L1: 3.061, D_real: 0.002, D_fake: 0.009
+
+[Rank 0] (epoch: 10, iters: 101, time: 0.366, data: 0.004) , G_GAN: 6.924, G_L1: 2.333, D_real: 0.004, D_fake: 0.001
+
+[Rank 0] (epoch: 10, iters: 201, time: 0.357, data: 0.002) , G_GAN: 5.503, G_L1: 3.139, D_real: 0.004, D_fake: 0.007
+
+[Rank 0] (epoch: 10, iters: 301, time: 0.358, data: 0.002) , G_GAN: 5.007, G_L1: 1.691, D_real: 0.000, D_fake: 0.013
+
+[Rank 0] (epoch: 10, iters: 401, time: 0.355, data: 0.003) , G_GAN: 2.106, G_L1: 2.653, D_real: 0.225, D_fake: 1.285
+
+[Rank 0] (epoch: 10, iters: 501, time: 0.354, data: 0.002) , G_GAN: 4.524, G_L1: 1.756, D_real: 0.034, D_fake: 0.023
+
+[Rank 0] (epoch: 10, iters: 601, time: 0.356, data: 0.003) , G_GAN: 6.548, G_L1: 1.693, D_real: 0.000, D_fake: 0.002
+
+[Rank 0] (epoch: 10, iters: 701, time: 0.351, data: 0.002) , G_GAN: 7.183, G_L1: 2.963, D_real: 0.000, D_fake: 0.001
+
+[Rank 0] (epoch: 10, iters: 801, time: 0.356, data: 0.003) , G_GAN: 6.795, G_L1: 3.688, D_real: 0.005, D_fake: 0.002
+
+[Rank 0] (epoch: 10, iters: 901, time: 0.349, data: 0.003) , G_GAN: 8.211, G_L1: 2.525, D_real: 0.002, D_fake: 0.000
+
+[Rank 0] (epoch: 10, iters: 1001, time: 0.363, data: 0.002) , G_GAN: 7.989, G_L1: 2.112, D_real: 0.004, D_fake: 0.001
+
+[Rank 0] (epoch: 10, iters: 1101, time: 0.380, data: 0.002) , G_GAN: 0.773, G_L1: 2.094, D_real: 0.547, D_fake: 0.061
+
+[Rank 0] (epoch: 10, iters: 1201, time: 0.369, data: 0.002) , G_GAN: 4.850, G_L1: 2.790, D_real: 0.004, D_fake: 0.323
+
+[Rank 0] (epoch: 10, iters: 1301, time: 0.499, data: 0.002) , G_GAN: 7.255, G_L1: 2.741, D_real: 0.002, D_fake: 0.001
+
+[Rank 0] (epoch: 10, iters: 1401, time: 0.370, data: 0.004) , G_GAN: 5.236, G_L1: 1.576, D_real: 0.034, D_fake: 0.006
+
+
+========== 8. TRAINING OPTIONS ==========
+checkpoints/cubicasa2k_pix2pix/latest_net_D.pth
+checkpoints/cubicasa2k_pix2pix/latest_net_G.pth
+checkpoints/cubicasa2k_pix2pix/test_opt.txt
+checkpoints/cubicasa2k_pix2pix/train_opt.txt
+
+========== 9. GENERATED RESULTS ==========
+results
+results/cubicasa2k_pix2pix
+results/cubicasa2k_pix2pix/cleaned
+results/cubicasa2k_pix2pix/test_latest
+results/cubicasa2k_pix2pix/test_latest/images
+
+========== 10. TEST IMAGE COUNTS ==========
+     177
+     177
+     177
+
+========== 11. SAMPLE GENERATED IMAGE FILES ==========
+-rw-r--r--@ 1 lukealley  staff    10K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/14474_real_A.png
+-rw-r--r--@ 1 lukealley  staff    18K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/8717_real_A.png
+-rw-r--r--@ 1 lukealley  staff   7.3K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/1636_real_A.png
+-rw-r--r--@ 1 lukealley  staff    11K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/12222_real_B.png
+-rw-r--r--@ 1 lukealley  staff    13K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/7961_real_A.png
+-rw-r--r--@ 1 lukealley  staff    22K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/14099_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   9.9K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/4752_real_B.png
+-rw-r--r--@ 1 lukealley  staff    41K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/14145_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    13K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/13811_real_B.png
+-rw-r--r--@ 1 lukealley  staff    14K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/340_real_B.png
+-rw-r--r--@ 1 lukealley  staff   9.5K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/4825_real_A.png
+-rw-r--r--@ 1 lukealley  staff    50K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/5604_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   4.8K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/10271_real_B.png
+-rw-r--r--@ 1 lukealley  staff   9.8K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/4906_real_A.png
+-rw-r--r--@ 1 lukealley  staff   7.4K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/928_real_A.png
+-rw-r--r--@ 1 lukealley  staff   8.7K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/47_real_A.png
+-rw-r--r--@ 1 lukealley  staff    47K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/6335_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    44K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/6457_fake_B.png
+-rw-r--r--@ 1 lukealley  staff   4.2K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/12509_real_B.png
+-rw-r--r--@ 1 lukealley  staff    13K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/12975_real_A.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/6048_real_B.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/11418_real_B.png
+-rw-r--r--@ 1 lukealley  staff    12K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/4594_real_A.png
+-rw-r--r--@ 1 lukealley  staff   6.3K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/5507_real_B.png
+-rw-r--r--@ 1 lukealley  staff    16K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/1066_real_B.png
+-rw-r--r--@ 1 lukealley  staff    40K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/11007_fake_B.png
+-rw-r--r--@ 1 lukealley  staff    24K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/8717_real_B.png
+-rw-r--r--@ 1 lukealley  staff    15K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/14474_real_B.png
+-rw-r--r--@ 1 lukealley  staff   9.9K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/1636_real_B.png
+-rw-r--r--@ 1 lukealley  staff   8.0K Nov 14 11:39 results/cubicasa2k_pix2pix/test_latest/images/12222_real_A.png
+
+========== 12. PYTORCH ENVIRONMENT ==========
+PyTorch: 2.15.0
+CUDA available: False
+MPS available: True
+MPS built: True
+
+========== 13. INSTALLED LIBRARIES ==========
+WARNING: Package(s) not found: matplotlib
+Name: torch
+Version: 2.15.0
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: 
+Author: 
+Author-email: PyTorch Team <packages@pytorch.org>
+License: 
+Location: /Users/lukealley/cinf99-security-engine/pix2pix/.venv/lib/python3.11/site-packages
+Requires: filelock, fsspec, jinja2, networkx, setuptools, sympy, typing-extensions
+Required-by: torchvision
+---
+Name: torchvision
+Version: 0.29.2
+Summary: image and video datasets and models for torch deep learning
+Home-page: https://github.com/pytorch/vision
+Author: PyTorch Core Team
+Author-email: soumith@pytorch.org
+License: BSD
+Location: /Users/lukealley/cinf99-security-engine/pix2pix/.venv/lib/python3.11/site-packages
+Requires: numpy, pillow, torch
+Required-by: 
+---
+Name: numpy
+Version: 2.4.6
+Summary: Fundamental package for array computing in Python
+Home-page: 
+Author: Travis E. Oliphant et al.
+Author-email: 
+License: 
+Location: /Users/lukealley/cinf99-security-engine/pix2pix/.venv/lib/python3.11/site-packages
+Requires: 
+Required-by: ImageIO, opencv-python, scikit-image, scipy, tifffile, torchvision
+---
+Name: pillow
+Version: 13.0.0
+Summary: Python Imaging Library (fork)
+Home-page: 
+Author: 
+Author-email: Jeffrey 'Alex' Clark <aclark@aclark.net>
+License: 
+Location: /Users/lukealley/cinf99-security-engine/pix2pix/.venv/lib/python3.11/site-packages
+Requires: 
+Required-by: CairoSVG, ImageIO, pytesseract, scikit-image, torchvision
+
+========== 14. TRAINING CONFIGURATION REFERENCES ==========
+options/train_options.py:25:        parser.add_argument('--n_epochs', type=int, default=100, help='number of epochs with the initial learning rate')
+options/train_options.py:26:        parser.add_argument('--n_epochs_decay', type=int, default=100, help='number of epochs to linearly decay learning rate to zero')
+options/train_options.py:28:        parser.add_argument('--lr', type=float, default=0.0002, help='initial learning rate for adam')
+options/train_options.py:31:        parser.add_argument('--lr_policy', type=str, default='linear', help='learning rate policy. [linear | step | plateau | cosine]')
+options/train_options.py:32:        parser.add_argument('--lr_decay_iters', type=int, default=50, help='multiply by a gamma every lr_decay_iters iterations')
+Binary file options/__pycache__/train_options.cpython-311.pyc matches
+Binary file options/__pycache__/base_options.cpython-311.pyc matches
+options/base_options.py:32:        parser.add_argument("--netD", type=str, default="basic", help="specify discriminator architecture [basic | n_layers | pixel]. The basic model is a 70x70 PatchGAN. n_layers allows you to specify the layers in the discriminator")
+options/base_options.py:33:        parser.add_argument("--netG", type=str, default="resnet_9blocks", help="specify generator architecture [resnet_9blocks | resnet_6blocks | unet_256 | unet_128]")
+options/base_options.py:34:        parser.add_argument("--n_layers_D", type=int, default=3, help="only used if netD==n_layers")
+options/base_options.py:40:        parser.add_argument("--dataset_mode", type=str, default="unaligned", help="chooses how datasets are loaded. [unaligned | aligned | single | colorization]")
+options/base_options.py:41:        parser.add_argument("--direction", type=str, default="AtoB", help="AtoB or BtoA")
+options/base_options.py:44:        parser.add_argument("--batch_size", type=int, default=1, help="input batch size")
+options/base_options.py:48:        parser.add_argument("--preprocess", type=str, default="resize_and_crop", help="scaling and cropping of images at load time [resize_and_crop | crop | scale_width | scale_width_and_crop | none]")
+options/base_options.py:55:        parser.add_argument("--suffix", default="", type=str, help="customized suffix: opt.name = opt.name + suffix: e.g., {model}_{netG}_size{load_size}")
+options/base_options.py:82:        dataset_name = opt.dataset_mode
+Binary file checkpoints/cubicasa2k_pix2pix/5_net_G.pth matches
+Binary file checkpoints/cubicasa2k_pix2pix/latest_net_D.pth matches
+Binary file checkpoints/cubicasa2k_pix2pix/5_net_D.pth matches
+Binary file checkpoints/cubicasa2k_pix2pix/latest_net_G.pth matches
+Binary file checkpoints/cubicasa2k_pix2pix/web/images/epoch008_fake_B.png matches
+Binary file checkpoints/cubicasa2k_pix2pix/web/images/epoch008_real_B.png matches
+Binary file checkpoints/cubicasa2k_pix2pix/web/images/epoch007_real_A.png matches
+Binary file checkpoints/cubicasa2k_pix2pix/web/images/epoch002_fake_B.png matches
+Binary file checkpoints/cubicasa2k_pix2pix/web/images/epoch001_fake_B.png matches
+Binary file checkpoints/cubicasa2k_pix2pix/web/images/epoch004_fake_B.png matches
+Binary file checkpoints/cubicasa2k_pix2pix/10_net_D.pth matches
+Binary file checkpoints/cubicasa2k_pix2pix/10_net_G.pth matches
+checkpoints/cubicasa2k_pix2pix/test_opt.txt:3:               batch_size: 1                             
+checkpoints/cubicasa2k_pix2pix/test_opt.txt:7:             dataset_mode: aligned                       
+checkpoints/cubicasa2k_pix2pix/test_opt.txt:8:                direction: AtoB                          
+checkpoints/cubicasa2k_pix2pix/test_opt.txt:23:                     netD: basic                         
+checkpoints/cubicasa2k_pix2pix/test_opt.txt:24:                     netG: unet_256                      
+checkpoints/cubicasa2k_pix2pix/test_opt.txt:33:               preprocess: none                          	[default: resize_and_crop]
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:2:               batch_size: 1                             
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:8:             dataset_mode: aligned                       
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:9:                direction: AtoB                          
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:22:                       lr: 0.0002                        
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:23:           lr_decay_iters: 50                            
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:24:                lr_policy: linear                        
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:27:                 n_epochs: 10                            	[default: 100]
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:28:           n_epochs_decay: 0                             	[default: 100]
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:32:                     netD: basic                         
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:33:                     netG: unet_256                      
+checkpoints/cubicasa2k_pix2pix/train_opt.txt:43:               preprocess: none                          	[default: resize_and_crop]
+
+========== 15. GIT STATUS ==========
+?? .venv/
+?? clean_predictions.py
+?? pix2pix_audit.txt
+
+========== 16. PROJECT FILE INVENTORY ==========
+./.git/HEAD
+./.git/config
+./.git/description
+./.git/index
+./.git/packed-refs
+./.gitignore
+./.replit
+./.venv/pyvenv.cfg
+./CycleGAN.ipynb
+./LICENSE
+./README.md
+./clean_predictions.py
+./data/__init__.py
+./data/aligned_dataset.py
+./data/base_dataset.py
+./data/colorization_dataset.py
+./data/image_folder.py
+./data/single_dataset.py
+./data/template_dataset.py
+./data/unaligned_dataset.py
+./datasets/combine_A_and_B.py
+./datasets/download_cyclegan_dataset.sh
+./datasets/download_pix2pix_dataset.sh
+./datasets/make_dataset_aligned.py
+./datasets/prepare_cityscapes_dataset.py
+./docs/Dockerfile
+./docs/README_es.md
+./docs/datasets.md
+./docs/docker.md
+./docs/overview.md
+./docs/qa.md
+./docs/tips.md
+./environment.yml
+./imgs/edges2cats.jpg
+./imgs/horse2zebra.gif
+./models/__init__.py
+./models/base_model.py
+./models/colorization_model.py
+./models/cycle_gan_model.py
+./models/networks.py
+./models/pix2pix_model.py
+./models/template_model.py
+./models/test_model.py
+./options/__init__.py
+./options/base_options.py
+./options/test_options.py
+./options/train_options.py
+./pix2pix.ipynb
+./pix2pix_audit.txt
+./sample_filtered_pair.png
+./sample_pairs.png
+./sample_training_pair.png
+./scripts/conda_deps.sh
+./scripts/download_cyclegan_model.sh
+./scripts/download_pix2pix_model.sh
+./scripts/install_deps.sh
+./scripts/test_before_push.py
+./scripts/test_colorization.sh
+./scripts/test_cyclegan.sh
+./scripts/test_pix2pix.sh
+./scripts/test_single.sh
+./scripts/train_colorization.sh
+./scripts/train_cyclegan.sh
+./scripts/train_pix2pix.sh
+./test.py
+./train.py
+./util/__init__.py
+./util/get_data.py
+./util/html.py
+./util/image_pool.py
+./util/util.py
+./util/visualizer.py
+
+========== AUDIT COMPLETE ==========
