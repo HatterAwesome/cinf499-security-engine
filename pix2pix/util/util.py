@@ -63,6 +63,8 @@ def init_ddp():
     elif torch.cuda.is_available():
         device = torch.device("cuda:0")
         torch.cuda.set_device(0)
+    elif torch.backends.mps.is_available():
+        device = torch.device("mps")
     else:
         device = torch.device("cpu")
     print(f"Initialized with device {device}")

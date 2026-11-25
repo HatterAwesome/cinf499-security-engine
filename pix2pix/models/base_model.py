@@ -289,18 +289,8 @@ class BaseModel(ABC):
             if isinstance(name, str):
                 net = getattr(self, "net" + name)
 
-                # Move to device
-                if torch.cuda.is_available():
-                    if "LOCAL_RANK" in os.environ:
-                        local_rank = int(os.environ["LOCAL_RANK"])
-                        net.to(local_rank)
-                        print(f"Initialized network {name} with device cuda:{local_rank}")
-                    else:
-                        net.to(0)
-                        print(f"Initialized network {name} with device cuda:0")
-                else:
-                    net.to("cpu")
-                    print(f"Initialized network {name} with device cpu")
+                net.to(self.device)
+                print(f"Initialized network {name} with device {self.device}")
 
                 # Initialize weights using networks function
                 networks.init_weights(net, init_type, init_gain)

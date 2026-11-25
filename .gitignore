@@ -38,3 +38,21 @@ data/*
 # Python environments and caches
 .venv/
 .ipynb_checkpoints/
+
+# Segmentation generated training data
+/segmentation/datasets/cubicasa/*
+!/segmentation/datasets/cubicasa/classes.json
+
+# Segmentation checkpoints
+/segmentation/checkpoints/*.pth
+!/segmentation/checkpoints/full_best.pth
+
+# Duplicate experimental checkpoints
+/segmentation/experiments/**/*.pth
+
+# Local application uploads
+/frontend/secure-uploads/
+/secure-uploads/
+
+# Java build artifacts
+/frontend/target/

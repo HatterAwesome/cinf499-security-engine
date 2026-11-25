@@ -1,0 +1,81 @@
+Device: mps
+Training samples: 200
+Validation samples: 20
+Epochs: 5
+Batch size: 2
+Learning rate: 0.001
+Training batches: 100
+Validation batches: 10
+PASS: Training initialization complete
+Epoch 1/5 | Batch 1/100 | Loss: 3.0553
+Epoch 1/5 | Batch 10/100 | Loss: 2.9150
+Epoch 1/5 | Batch 20/100 | Loss: 2.8029
+Epoch 1/5 | Batch 30/100 | Loss: 2.6434
+Epoch 1/5 | Batch 40/100 | Loss: 2.5198
+Epoch 1/5 | Batch 50/100 | Loss: 2.4187
+Epoch 1/5 | Batch 60/100 | Loss: 2.6848
+Epoch 1/5 | Batch 70/100 | Loss: 2.3092
+Epoch 1/5 | Batch 80/100 | Loss: 2.4354
+Epoch 1/5 | Batch 90/100 | Loss: 2.2763
+Epoch 1/5 | Batch 100/100 | Loss: 2.1294
+
+Epoch 1/5 complete | Train loss: 2.5393 | Val loss: 2.2043 | Foreground mIoU: 0.0090 | Time: 26.6s
+Saved best checkpoint
+Epoch 2/5 | Batch 1/100 | Loss: 1.8630
+Epoch 2/5 | Batch 10/100 | Loss: 2.2562
+Epoch 2/5 | Batch 20/100 | Loss: 2.2440
+Epoch 2/5 | Batch 30/100 | Loss: 1.5741
+Epoch 2/5 | Batch 40/100 | Loss: 1.9379
+Epoch 2/5 | Batch 50/100 | Loss: 1.8860
+Epoch 2/5 | Batch 60/100 | Loss: 1.6497
+Epoch 2/5 | Batch 70/100 | Loss: 2.0170
+Epoch 2/5 | Batch 80/100 | Loss: 2.0851
+Epoch 2/5 | Batch 90/100 | Loss: 2.1417
+Epoch 2/5 | Batch 100/100 | Loss: 3.0623
+
+Epoch 2/5 complete | Train loss: 1.9641 | Val loss: 5.6647 | Foreground mIoU: 0.0014 | Time: 23.3s
+Epoch 3/5 | Batch 1/100 | Loss: 1.7725
+Epoch 3/5 | Batch 10/100 | Loss: 1.5785
+Epoch 3/5 | Batch 20/100 | Loss: 1.5876
+Epoch 3/5 | Batch 30/100 | Loss: 1.6754
+Epoch 3/5 | Batch 40/100 | Loss: 1.5725
+Epoch 3/5 | Batch 50/100 | Loss: 1.3636
+Epoch 3/5 | Batch 60/100 | Loss: 1.8910
+Epoch 3/5 | Batch 70/100 | Loss: 1.8958
+Epoch 3/5 | Batch 80/100 | Loss: 1.5791
+Epoch 3/5 | Batch 90/100 | Loss: 1.9116
+Epoch 3/5 | Batch 100/100 | Loss: 1.6788
+
+Epoch 3/5 complete | Train loss: 1.7108 | Val loss: 1.8306 | Foreground mIoU: 0.0252 | Time: 23.4s
+Saved best checkpoint
+Epoch 4/5 | Batch 1/100 | Loss: 2.1454
+Epoch 4/5 | Batch 10/100 | Loss: 1.3749
+Epoch 4/5 | Batch 20/100 | Loss: 2.0275
+Epoch 4/5 | Batch 30/100 | Loss: 1.3662
+Epoch 4/5 | Batch 40/100 | Loss: 1.5827
+Epoch 4/5 | Batch 50/100 | Loss: 1.7306
+Epoch 4/5 | Batch 60/100 | Loss: 1.0566
+Epoch 4/5 | Batch 70/100 | Loss: 0.8761
+Epoch 4/5 | Batch 80/100 | Loss: 1.4124
+Epoch 4/5 | Batch 90/100 | Loss: 1.4612
+Epoch 4/5 | Batch 100/100 | Loss: 2.5374
+
+Epoch 4/5 complete | Train loss: 1.5785 | Val loss: 1.6404 | Foreground mIoU: 0.0534 | Time: 23.2s
+Saved best checkpoint
+Epoch 5/5 | Batch 1/100 | Loss: 1.6115
+Epoch 5/5 | Batch 10/100 | Loss: 1.8645
+Epoch 5/5 | Batch 20/100 | Loss: 1.4687
+Epoch 5/5 | Batch 30/100 | Loss: 1.3039
+Epoch 5/5 | Batch 40/100 | Loss: 1.8465
+Epoch 5/5 | Batch 50/100 | Loss: 1.2122
+Epoch 5/5 | Batch 60/100 | Loss: 1.7568
+Epoch 5/5 | Batch 70/100 | Loss: 1.4113
+Epoch 5/5 | Batch 80/100 | Loss: 1.2941
+Epoch 5/5 | Batch 90/100 | Loss: 1.9204
+Epoch 5/5 | Batch 100/100 | Loss: 1.7877
+
+Epoch 5/5 complete | Train loss: 1.5151 | Val loss: 2.1025 | Foreground mIoU: 0.0298 | Time: 23.3s
+
+TRAINING COMPLETE
+Best foreground mIoU: 0.05337725579738617
+Total seconds: 123.7

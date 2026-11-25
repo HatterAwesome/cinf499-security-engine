@@ -1,0 +1,23 @@
+{
+  "Background": 0,
+  "Bedroom": 1,
+  "Bathroom": 2,
+  "Living Room": 3,
+  "Kitchen": 4,
+  "Entry": 5,
+  "Closet": 6,
+  "Dining Room": 7,
+  "Garage": 8,
+  "Laundry Room": 9,
+  "Storage Room": 10,
+  "Terrace": 11,
+  "Balcony": 12,
+  "Office": 13,
+  "Hallway": 14,
+  "Sauna": 15,
+  "Technical Room": 16,
+  "Outdoor Area": 17,
+  "Dressing Room": 18,
+  "Carport": 19,
+  "Patio": 20
+}
