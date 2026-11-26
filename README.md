@@ -153,7 +153,7 @@ Application functionality includes:
 - Door management
 - User administration
 - Access event tracking
-- Floor plan and document uploads
+- Floor plan upload
 - Server-side input validation
 - Secure file storage
 
