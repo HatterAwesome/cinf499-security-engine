@@ -150,7 +150,6 @@ a simulated physical access control system.
 Application functionality includes:
 
 - User authentication and role-based access control
-- Door management
 - User administration
 - Access event tracking
 - Floor plan upload
