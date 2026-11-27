@@ -76,3 +76,70 @@ There are currently no automated test cases.
 ## Notes
 
 This application uses simulated access-control data. It does not control real doors or security hardware.
+
+## CINF 499 Senior Research Integration
+
+The dashboard supports AI-assisted floor plan labeling.
+
+### Current Functionality
+
+- Authenticated floor plan analysis
+- PNG and JPEG image uploads
+- Original and generated image comparison
+- U-Net semantic segmentation
+- OpenCV architectural boundary refinement
+- English room label rendering
+- Generated PNG download
+
+### Integrated Application Setup
+
+From the repository root:
+
+    python3.11 -m venv .venv
+    source .venv/bin/activate
+    python -m pip install -r segmentation/requirements.txt
+
+Configure the model connection:
+
+    export FLOORPLAN_PROJECT_ROOT="$(pwd)"
+    export FLOORPLAN_PYTHON="$FLOORPLAN_PROJECT_ROOT/.venv/bin/python"
+    export MONGODB_URI='mongodb://localhost:27017/accesscontrol_db'
+
+Configure APP_ADMIN_USERNAME and APP_ADMIN_PASSWORD
+using your own administrator credentials.
+
+Start MongoDB and run:
+
+    cd frontend
+    mvn spring-boot:run
+
+Open http://localhost:8080 and sign in.
+
+The trained checkpoint is included in the repository.
+Retraining is not required.
+
+### Backend Integration
+
+    POST /api/floorplans/generate
+
+Java ProcessBuilder executes the Python prediction
+pipeline and returns a generated PNG to the browser.
+
+### Generation Safeguards
+
+- Authentication and CSRF protection
+- PNG and JPEG content validation
+- Maximum upload size of 5 MB
+- Maximum image area of 4 million pixels
+- Processing timeout of 120 seconds
+- Single concurrent model execution
+- Temporary file cleanup
+- Generic error responses
+
+### Research Limitations
+
+Predicted room labels require human verification.
+Incorrect classifications and missing labels may occur.
+
+The system does not automatically place access control
+devices or control physical security hardware.

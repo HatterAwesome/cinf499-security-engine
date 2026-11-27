@@ -5,6 +5,7 @@ import numpy as np
 
 from PIL import Image, ImageDraw, ImageFont
 from scipy import ndimage
+from segmentation.fonts import load_label_font
 
 
 def clean_mask(mask, size=15):
@@ -45,10 +46,7 @@ def render_labels(original, mask, classes, min_area=12000):
 
     draw = ImageDraw.Draw(image)
 
-    font = ImageFont.truetype(
-        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-        28
-    )
+    font = load_label_font(28)
 
     placed = 0
 
@@ -80,10 +78,7 @@ def render_labels(original, mask, classes, min_area=12000):
 
             for font_size in range(28, 11, -1):
 
-                font = ImageFont.truetype(
-                    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-                    font_size
-                )
+                font = load_label_font(font_size)
 
                 box = draw.textbbox(
                     (int(x), int(y)),

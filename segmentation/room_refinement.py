@@ -5,8 +5,8 @@ import numpy as np
 
 from PIL import Image, ImageDraw, ImageFont
 from scipy import ndimage
+from segmentation.fonts import load_label_font
 
-FONT = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 
 
 def refine(original, prediction, classes, ratio=0.02):
@@ -117,7 +117,7 @@ def refine(original, prediction, classes, ratio=0.02):
 
         for size in range(28, 11, -1):
 
-            font = ImageFont.truetype(FONT, size)
+            font = load_label_font(size)
 
             box = draw.textbbox(
                 (int(x), int(y)),
@@ -159,5 +159,3 @@ def refine(original, prediction, classes, ratio=0.02):
         )
 
     return result, placed, skipped
-
-

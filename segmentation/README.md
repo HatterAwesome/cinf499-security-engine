@@ -197,6 +197,9 @@ placement rather than independent model accuracy.
 | train.py | Pilot model training |
 | train_full.py | Full model training |
 | predict.py | Model inference |
+| room_refinement.py | Architectural boundary refinement |
+| fonts.py | Portable font selection |
+| requirements.txt | Python dependencies |
 | render_labels.py | Mask post-processing and label placement |
 | room_geometry.py | SVG room geometry extraction |
 | individual_room_geometry.py | Individual room mask generation |
@@ -222,11 +225,11 @@ but room classification accuracy remains limited.
 Observed limitations include:
 
 - Incorrect room classifications
-- Duplicate predicted room labels
+- Incorrectly separated or combined architectural spaces
 - Missing labels within smaller rooms
 - Label overlap with architectural fixtures
 - Limited generalization to unseen floor plans
-- Operating system-specific font configuration
+- Font rendering differences across operating systems
 
 Independent evaluation of the held-out testing
 dataset remains pending.
@@ -234,10 +237,61 @@ dataset remains pending.
 ## Future Development
 
 Further development includes improving room
-classification accuracy, refining label placement,
-and integrating the prediction pipeline with the
-Java Spring Boot access control application.
+classification accuracy and architectural boundary detection.
+
+The prediction pipeline is integrated with the
+Java Spring Boot application.
 
 The long-term objective is to support architectural
 floor plan analysis for physical access control
 system planning.
+
+
+## Final Room Boundary Refinement
+
+The final pipeline combines U-Net semantic segmentation
+with OpenCV architectural boundary detection.
+
+A maximum of one label is placed within each accepted
+detected architectural space.
+
+The boundary-closing kernel is approximately 2 percent
+of the longest image dimension.
+
+A predicted class must occupy at least 50 percent of
+the detected space before label placement is attempted.
+
+This represents pixel agreement, not calibrated
+model confidence.
+
+For sample 10465, the baseline generated 20 labels.
+The refined pipeline generated 5 labels and skipped
+6 candidate regions.
+
+The 75 percent reduction in label count does not
+represent a measured improvement in classification accuracy.
+
+Experimental results are preserved in:
+
+    segmentation/experiments/room_refinement/
+
+The original rendering approach remains available
+using the --baseline command-line option.
+
+## Python Dependencies
+
+From the repository root:
+
+    python3.11 -m venv .venv
+    source .venv/bin/activate
+    python -m pip install -r segmentation/requirements.txt
+
+Dataset preparation additionally requires native Cairo.
+
+Font selection supports macOS, Windows, Linux,
+and a Pillow fallback.
+
+A custom font can be supplied through the
+FLOORPLAN_FONT environment variable.
+
+Cross-platform installation has not been fully tested.

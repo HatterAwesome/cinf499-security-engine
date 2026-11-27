@@ -78,7 +78,7 @@ be rendered directly onto the original floor plan.
 2. Preprocess the image for model inference.
 3. Predict room classes using the trained U-Net model.
 4. Apply post-processing to the predicted room mask.
-5. Determine room label placement.
+5. Detect architectural spaces and evaluate room-level predictions.
 6. Render English labels onto the original floor plan.
 7. Export the labeled floor plan.
 
@@ -161,8 +161,17 @@ Thymeleaf, Bootstrap, Maven, and MongoDB.
 
 See [Frontend Documentation](frontend/README.md).
 
-The access control application and machine learning
-pipeline currently operate as separate components.
+The Java Spring Boot application is integrated with
+the Python machine learning pipeline through an
+authenticated floor plan generation endpoint.
+
+Users can upload a blank architectural floor plan,
+generate predicted English room labels, compare
+the original and generated images, and download
+the generated PNG.
+
+See the frontend documentation for installation
+and configuration instructions.
 
 ## Repository Structure
 
@@ -180,6 +189,9 @@ pipeline currently operate as separate components.
     |   |-- model.py
     |   |-- predict.py
     |   |-- render_labels.py
+    |   |-- room_refinement.py
+    |   |-- fonts.py
+    |   |-- requirements.txt
     |   |-- train.py
     |   |-- train_full.py
     |-- dataset/
@@ -197,13 +209,25 @@ plan images and generate readable English room labels.
 The reference generation pipeline has successfully
 processed all 2,000 floor plans.
 
-Current limitations include room classification
-accuracy, incorrect or duplicate predicted labels,
-and label placement within smaller rooms.
+The final application demonstrates functional
+end-to-end floor plan processing and readable
+English label rendering.
 
-Independent held-out test evaluation and integration
-with the access control management application
-remain areas for further development.
+However, the model does not yet classify rooms
+with sufficient accuracy for reliable practical use.
+
+Incorrect room classifications, missing labels,
+incorrect architectural boundaries, and limited
+generalization remain significant limitations.
+
+Some input images may produce no predicted labels.
+
+Independent held-out test evaluation remains
+an area for further research.
+
+The application is a research prototype and
+requires human verification before use in
+physical security planning.
 
 The complete generated datasets and large Pix2Pix
 checkpoints are stored locally. Selected examples,
@@ -222,6 +246,7 @@ checkpoint are included in this repository.
 - Pillow
 - SciPy
 - CairoSVG
+- OpenCV
 
 ### Application Development
 
@@ -253,3 +278,63 @@ https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 
 Original third-party documentation, citations, and
 licensing information are preserved in the repository.
+
+
+## Running the Final Prototype
+
+Requirements:
+
+- Python 3.11
+- Java 21
+- Maven
+- MongoDB
+
+Install the Python dependencies from the repository root:
+
+    python3.11 -m venv .venv
+    source .venv/bin/activate
+    python -m pip install -r segmentation/requirements.txt
+
+Run standalone model inference:
+
+    python -m segmentation.predict --input segmentation/examples/blank/10465.png --output generated.png
+
+The trained U-Net checkpoint is included.
+Retraining is not required.
+
+For the integrated web application, follow
+frontend/README.md.
+
+## Final Research Findings
+
+Direct Pix2Pix image translation did not consistently
+generate readable English room labels.
+
+Separating semantic segmentation from text rendering
+resolved the text readability problem, but did not
+resolve room classification accuracy.
+
+Architectural boundary refinement reduced the number
+of generated labels from 20 to 5 on sample 10465,
+with 6 candidate regions skipped.
+
+This reduction is not a measured improvement
+in classification accuracy.
+
+The best validation foreground mIoU was 21.28 percent.
+
+The final prototype demonstrates the feasibility
+of integrating machine learning inference with a
+Java-based architectural analysis application.
+
+Reliable automated room identification and physical
+access control device placement remain future work.
+
+## Generative AI Disclosure
+
+Generative AI was used to assist with software
+development, debugging, implementation planning,
+and technical documentation.
+
+The research paper provides further disclosure
+of AI-assisted development and external tools.

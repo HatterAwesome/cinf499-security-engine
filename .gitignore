@@ -56,3 +56,7 @@ data/*
 
 # Java build artifacts
 /frontend/target/
+
+# Temporary development backups
+*.bak
+*.weighted_backup

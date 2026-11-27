@@ -55,7 +55,7 @@
                 <h5>Select a floor plan image</h5>
 
                 <p class="text-secondary">
-                    Supported formats: PNG and JPG
+                    Supported formats: PNG and JPG | Maximum 5 MB and 4 million pixels
                 </p>
 
                 <input type="file"
@@ -133,6 +133,28 @@
         Select a floor plan to begin.
     </p>
 
+    <div class="text-center mt-3">
+        <button id="downloadButton"
+                type="button"
+                class="btn btn-outline-primary"
+                disabled>
+            Download Generated Floor Plan
+        </button>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5>Research Prototype</h5>
+            <p class="text-secondary mb-0">
+                Room labels are AI-generated predictions.
+                Incorrect classifications, missing labels,
+                and room boundary errors may occur.
+                Results require human verification before
+                use in physical security planning.
+            </p>
+        </div>
+    </div>
+
     <footer class="text-center mt-5 small">
         Stetson University | Senior Research Project
     </footer>
@@ -150,10 +172,29 @@
     let previewUrl = null;
     let generatedUrl = null;
 
+    const downloadButton =
+        document.getElementById("downloadButton");
+
+    downloadButton.addEventListener("click", function () {
+
+        if (!generatedUrl) return;
+
+        const link = document.createElement("a");
+
+        link.href = generatedUrl;
+        link.download = "labeled-floorplan.png";
+
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    });
+
     const generatedImage = document.getElementById("generatedImage");
     const generatedPlaceholder = document.getElementById("generatedPlaceholder");
 
     function resetGeneratedImage() {
+
+        downloadButton.disabled = true;
         if (generatedUrl) {
             URL.revokeObjectURL(generatedUrl);
             generatedUrl = null;
@@ -285,6 +326,8 @@
 
             generatedImage.src = generatedUrl;
             await generatedImage.decode();
+
+            downloadButton.disabled = false;
 
             generatedImage.hidden = false;
             generatedPlaceholder.hidden = true;
