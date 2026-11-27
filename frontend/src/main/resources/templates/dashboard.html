@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Floor Plan Analysis | Security Engineering</title>
 
@@ -128,7 +130,7 @@
     <p id="generationStatus"
        class="text-secondary text-center mt-3"
        role="status">
-        Pix2Pix model integration pending.
+        Select a floor plan to begin.
     </p>
 
     <footer class="text-center mt-5 small">
@@ -146,9 +148,27 @@
     const status = document.getElementById("generationStatus");
 
     let previewUrl = null;
+    let generatedUrl = null;
+
+    const generatedImage = document.getElementById("generatedImage");
+    const generatedPlaceholder = document.getElementById("generatedPlaceholder");
+
+    function resetGeneratedImage() {
+        if (generatedUrl) {
+            URL.revokeObjectURL(generatedUrl);
+            generatedUrl = null;
+        }
+
+        generatedImage.hidden = true;
+        generatedImage.removeAttribute("src");
+        generatedPlaceholder.hidden = false;
+        generatedPlaceholder.textContent = "Awaiting generation";
+    }
 
     // Display the selected floor plan in the browser.
     upload.addEventListener("change", function () {
+
+        resetGeneratedImage();
 
         if (previewUrl) {
             URL.revokeObjectURL(previewUrl);
@@ -179,7 +199,7 @@
             originalImage.hidden = false;
             placeholder.hidden = true;
             generateButton.disabled = false;
-            status.textContent = "Image ready. Model integration pending.";
+            status.textContent = "Image ready. Click Generate Floor Plan.";
         };
 
         originalImage.onerror = function () {
@@ -192,11 +212,99 @@
 
     });
 
-    // Future Pix2Pix integration.
-    generateButton.addEventListener("click", function () {
+    // Submit the floor plan to the Java inference endpoint.
+    generateButton.addEventListener("click", async function () {
+
+        const file = upload.files[0];
+
+        if (!file) {
+            status.textContent = "Select a floor plan first.";
+            return;
+        }
+
+        if (file.size > 5 * 1024 * 1024) {
+            status.textContent = "The image must be no larger than 5 MB.";
+            return;
+        }
+
+        resetGeneratedImage();
+
+        generateButton.disabled = true;
+        upload.disabled = true;
+
+        generateButton.textContent = "Generating Floor Plan...";
+        generatedPlaceholder.textContent = "Processing floor plan...";
 
         status.textContent =
-            "The Pix2Pix model has not been connected yet.";
+            "Analyzing room classifications and generating English labels.";
+
+        try {
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            const csrfToken =
+                document.querySelector('meta[name="_csrf"]').content;
+
+            const csrfHeader =
+                document.querySelector('meta[name="_csrf_header"]').content;
+
+            const response = await fetch("/api/floorplans/generate", {
+                method: "POST",
+                headers: {
+                    [csrfHeader]: csrfToken
+                },
+                body: formData
+            });
+
+            if (response.redirected) {
+                throw new Error("Your session may have expired. Please sign in again.");
+            }
+
+            if (!response.ok) {
+                const contentType =
+                    response.headers.get("content-type") || "";
+
+                const message = contentType.includes("text/plain")
+                    ? await response.text()
+                    : "Generation failed. HTTP " + response.status;
+
+                throw new Error(message);
+            }
+
+            const contentType =
+                response.headers.get("content-type") || "";
+
+            if (!contentType.includes("image/png")) {
+                throw new Error("The server did not return a valid PNG image.");
+            }
+
+            const imageBlob = await response.blob();
+
+            generatedUrl = URL.createObjectURL(imageBlob);
+
+            generatedImage.src = generatedUrl;
+            await generatedImage.decode();
+
+            generatedImage.hidden = false;
+            generatedPlaceholder.hidden = true;
+
+            status.textContent =
+                "Generation complete. Review the predicted room labels.";
+
+        } catch (error) {
+
+            resetGeneratedImage();
+
+            generatedPlaceholder.textContent = "Generation unsuccessful";
+            status.textContent = error.message;
+
+        } finally {
+
+            generateButton.disabled = false;
+            upload.disabled = false;
+            generateButton.textContent = "Generate Floor Plan";
+        }
 
     });
 
