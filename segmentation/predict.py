@@ -100,6 +100,12 @@ def main():
     parser.add_argument("--output", required=True)
 
     parser.add_argument(
+        "--baseline",
+        action="store_true",
+        help="Use original segmentation label placement"
+    )
+
+    parser.add_argument(
         "--checkpoint",
         default="segmentation/checkpoints/full_best.pth"
     )
@@ -122,9 +128,18 @@ def main():
 
     cleaned = clean_mask(prediction)
 
-    labeled, count = render_labels(
-        original, cleaned, classes
-    )
+    if args.baseline:
+        labeled, count = render_labels(
+            original, cleaned, classes
+        )
+    else:
+        from segmentation.room_refinement import refine
+
+        labeled, count, skipped = refine(
+            original, cleaned, classes
+        )
+
+        print("Regions skipped:", skipped)
 
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
